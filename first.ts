@@ -44,9 +44,103 @@
 // console.log(head);
 //+:Element, 태그
 
-<div id = "head"></div>
+// <div id = "head"></div>
 
-const head = document.querySelector('#head');
-if (head) {
-  console.log(head);
-}
+// const head = document.querySelector('#head');
+// if (head) {
+//   console.log(head);
+// }
+
+
+// type World = "world"|"hell";
+// const a: World = 'world';
+
+// const b = `hello ${a}`;
+
+// type Greeting = `hello ${World}`;
+// const c: Greeting = ''
+
+
+
+// const enum EDirection {
+//     Up,
+//     Down,
+//     Left,
+//     Right,
+//   }
+   
+//   const ODirection = {
+//     Up: 0,
+//     Down: 1,
+//     Left: 2,
+//     Right: 3,
+//   } as const;
+   
+//   EDirection.Up;
+//   EDirection.Left;
+
+
+//   function walk(dir:EDirection){}
+
+//   const obj = {a:'123',b:'hello',c:'world'}as const;
+//   type Key = typeof obj[keyof typeof obj];
+
+//   (enum member) EDirection.Up = 0
+   
+//   ODirection.Up;
+             
+//   (property) Up: 0
+   
+//   // Using the enum as a parameter
+//   function walk(dir: EDirection) {}
+   
+//   // It requires an extra line to pull out the keys
+//   type Direction = typeof ODirection[keyof typeof ODirection];
+//   function run(dir: Direction) {}
+   
+//   walk(EDirection.Left);
+//   run(ODirection.Right);
+
+// type A = { a: string };
+// const a: A = { a: 'hello' };
+
+// interface B { a: string }
+// const b: B = { a: 'hello' };
+
+
+// function add(x: string | number, y: string | number): string | number { return x + y }
+// /// union
+// const result: string | number = add(1, 2);
+
+// add('1', '2')
+// add(1, '2')
+
+// type A = {
+//     a: string;
+// }
+// type B = {
+//     b: string;
+// }
+
+// const aa: A | B = { a: 'hello', b: 'world' };
+// //둘 중에 하나의 속성만 있어도 된다. | 유니온
+// const bb: A & B = { a: 'hello', b: 'world' };
+// //모든 속성이 다 있어야 한다. & 인터섹션 intersection
+// //둘 다 성립한다!!! 
+
+// type Animal = {breath: true};
+// type Mammal = Animal & {breed: true};
+// type Human = Mammal & {think: true};
+
+// interface A{
+//     breath: true
+// }
+// interface B extends A{
+//     breed: true
+// }
+// const b: B = { breath:true, breed: true};
+
+// const zerocho: Human = {breath: true, breed: true, think: true};
+// //상속의 개념으로 이해해보자
+
+// //인터페이스는 여러번 선언이 가능함
