@@ -144,3 +144,30 @@
 // //상속의 개념으로 이해해보자
 
 // //인터페이스는 여러번 선언이 가능함
+
+// type A = {name:string};
+// type B = {age:number};
+
+// type AB = A|B;
+
+// type C = {name:string, age:number};// 이쪽이 더 좁은 타입 객체는 상세할 수 록 더 좁음
+
+// const ab: AB = {name: 'chungstar'};
+
+// //const c:C = {name: 'chungstar',age: 29, married: false};//어? 넓은 타입에 좁은 타입을 넣었는데 안되지? 잉여 속성 검사때문임
+
+// const obj = {name: 'chungstar',age: 29, married: false}
+// const c:C = obj;
+
+
+declare function forEach<T>(arr: T[], callback: (el: T) => undefined): void;
+// declare function forEach<T>(arr: T[], callback: (el: T) => void): void;
+let target: number[] = [];
+forEach([1, 2, 3], el => target.push(el));
+
+interface A {
+    talk: () => void;
+}
+const a: A = {
+    talk() { return 3; }
+}
