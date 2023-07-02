@@ -265,8 +265,12 @@ function numOrNumArr(a: number | number[]) {
 //   z; ///const z: unknown
 // }
 
-// 인덱스드 시그니처
-//type A = {a: string, b: string, c: string, d: string};
-type A = {[key: string]:string};
-const aaa: A = { a: 'hello',b: 'world'};
+//// 인덱스드 시그니처
+//// type A = {a: string, b: string, c: string, d: string};
+// type A = {[key: string]:string};
+// const aaa: A = { a: 'hello',b: 'world'};
 
+// // 맵드 타입스
+// type B = 'Human'|'Mammal'|'Animal';
+// type A = {[key in B]:number};
+// const aaa: A = { 'Human': 3, 'Mammal': 5, 'Animal': 1243 };
