@@ -1,3 +1,4 @@
+
 // const a: string = '5';
 // // 변수 이름 뒤, 소문자여야함.
 // const b: number = 5;
@@ -68,14 +69,14 @@
 //     Left,
 //     Right,
 //   }
-   
+
 //   const ODirection = {
 //     Up: 0,
 //     Down: 1,
 //     Left: 2,
 //     Right: 3,
 //   } as const;
-   
+
 //   EDirection.Up;
 //   EDirection.Left;
 
@@ -86,18 +87,18 @@
 //   type Key = typeof obj[keyof typeof obj];
 
 //   (enum member) EDirection.Up = 0
-   
+
 //   ODirection.Up;
-             
+
 //   (property) Up: 0
-   
+
 //   // Using the enum as a parameter
 //   function walk(dir: EDirection) {}
-   
+
 //   // It requires an extra line to pull out the keys
 //   type Direction = typeof ODirection[keyof typeof ODirection];
 //   function run(dir: Direction) {}
-   
+
 //   walk(EDirection.Left);
 //   run(ODirection.Right);
 
@@ -126,7 +127,7 @@
 // //둘 중에 하나의 속성만 있어도 된다. | 유니온
 // const bb: A & B = { a: 'hello', b: 'world' };
 // //모든 속성이 다 있어야 한다. & 인터섹션 intersection
-// //둘 다 성립한다!!! 
+// //둘 다 성립한다!!!
 
 // type Animal = {breath: true};
 // type Mammal = Animal & {breed: true};
@@ -160,14 +161,93 @@
 // const c:C = obj;
 
 
-declare function forEach<T>(arr: T[], callback: (el: T) => undefined): void;
-// declare function forEach<T>(arr: T[], callback: (el: T) => void): void;
-let target: number[] = [];
-forEach([1, 2, 3], el => target.push(el));
+// declare function forEach<T>(arr: T[], callback: (el: T) => undefined): void;
+// // declare function forEach<T>(arr: T[], callback: (el: T) => void): void;
+// let target: number[] = [];
+// forEach([1, 2, 3], el => target.push(el));
 
-interface A {
-    talk: () => void;
+// interface A {
+//     talk: () => void;
+// }
+// const a: A = {
+//     talk() { return 3; }
+// }
+
+//타입 가드
+
+function numOrStr(a: number | string) {
+  if (typeof a === 'string') {
+    a.split(',');
+  } else {
+    a.toFixed(1);
+  }
 }
-const a: A = {
-    talk() { return 3; }
+
+function numOrNumArr(a: number | number[]) {
+  if (Array.isArray(a)) {
+    a.slice(1);
+  } else {
+    a.toFixed(1);
+  }
 }
+
+// class A{
+//     aaa(){}
+// }
+// class B{
+//     bbb(){}
+// }
+// function aOrB(param: A|B){
+//     if(param instanceof A){
+//         param.aaa();
+//     }
+// }
+// aOrB(new A());
+// aOrB(new B());
+
+// type B = { type: 'b', bbb: string };
+// type C = { type: 'c', ccc: string };
+// type D = { type: 'd', ddd: string };
+// type A = B | C | D;
+// function typeCheck(a: A) {
+//   if (a.type === 'b') {
+//     a.bbb;
+//   } else if (a.type === 'c') {
+//     a.ccc;
+//   } else {
+//     a.ddd;
+//   }
+// }
+
+// interface Cat { meow: number }
+// interface Dog { bow: number }
+// function catOrDog(a: Cat | Dog): a is Dog {
+//     //타입 판별을 직접 만드세요
+//   if ((a as Cat).meow) { return false }
+//   return true;
+// }
+// // 타입을 구분해주는 커스텀 함수를 직접 만들 수 있음
+// function pet(a:Cat|Dog){
+//     if(catOrDog(a)){
+//         console.log(a.bow);
+//     }
+//     if('meow' in a){
+//         console.log(a.meow);
+//     }
+// }
+
+// const cat: Cat | Dog = { meow: 3 }
+// if (catOrDog(cat)) {
+//     console.log(cat.meow);
+// }
+// if ('meow' in cat) {
+//     console.log(cat.meow);
+// }
+
+// const isRejected = (input: PromiseSettledResult<unknown>): input is PromiseRejectedResult => input.status === 'rejected';
+// const isFulfilled = <T>(input: PromiseSettledResult<T>): input is PromiseFulfilledResult<T> => input.status === 'fulfilled';
+
+// const promises = await Promise.allSettled([Promise.resolve('a'), Promise.resolve('b')]);
+// const errors = promises.filter(isRejected);
+
+// export{};
