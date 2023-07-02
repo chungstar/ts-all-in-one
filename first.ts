@@ -251,3 +251,22 @@ function numOrNumArr(a: number | number[]) {
 // const errors = promises.filter(isRejected);
 
 // export{};
+
+// const x:{}='hello';
+// const y: Object = 'hi'; // {}, Object 모든 타입(null과 undefined 제외)
+// const xx:object = 'hi';
+// const yy:object = {hello:'world'}; //object 지양, interface, type, class
+// const z: unknown = 'hi';
+
+// // unknown = {} | null | undefined
+// if(z){
+//   z; ///const z: {}
+// } else{
+//   z; ///const z: unknown
+// }
+
+// 인덱스드 시그니처
+//type A = {a: string, b: string, c: string, d: string};
+type A = {[key: string]:string};
+const aaa: A = { a: 'hello',b: 'world'};
+
