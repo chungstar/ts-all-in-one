@@ -175,21 +175,21 @@
 
 //타입 가드
 
-function numOrStr(a: number | string) {
-  if (typeof a === 'string') {
-    a.split(',');
-  } else {
-    a.toFixed(1);
-  }
-}
+// function numOrStr(a: number | string) {
+//   if (typeof a === 'string') {
+//     a.split(',');
+//   } else {
+//     a.toFixed(1);
+//   }
+// }
 
-function numOrNumArr(a: number | number[]) {
-  if (Array.isArray(a)) {
-    a.slice(1);
-  } else {
-    a.toFixed(1);
-  }
-}
+// function numOrNumArr(a: number | number[]) {
+//   if (Array.isArray(a)) {
+//     a.slice(1);
+//   } else {
+//     a.toFixed(1);
+//   }
+// }
 
 // class A{
 //     aaa(){}
@@ -274,3 +274,36 @@ function numOrNumArr(a: number | number[]) {
 // type B = 'Human'|'Mammal'|'Animal';
 // type A = {[key in B]:number};
 // const aaa: A = { 'Human': 3, 'Mammal': 5, 'Animal': 1243 };
+
+// class A{
+//   a: string;
+//   b: number;
+//   constructor(a:string, b:number){
+//     this.a = a;
+//     this.b = b;
+//   }
+//   method(){
+
+//   }
+// }
+// type AA = A;
+// const a:A = new A('123',123);
+// const b: typeof A = A;
+
+
+interface A {
+  readonly a: string;
+  b: string;
+}
+class B implements A {
+  private a: string = '123';
+  protected b: string = 'world';
+  method(){
+    console.log(this.a);
+    console.log(this.a);
+  }
+}
+
+class C extends B {}
+new C().a;
+new C().b;
